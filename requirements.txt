@@ -1,0 +1,1 @@
+pygst @ git+ssh://git@github.com/dataiCV/pygst
