@@ -27,7 +27,7 @@ def on_message(bus, message, loop):
         
     return True 
 
-command = "videotestsrc num-buffers=50 ! gtksink"
+command = "videotestsrc num-buffers=50 ! autovideosink"
 
 # Gst.Pipeline https://lazka.github.io/pgi-docs/Gst-1.0/classes/Pipeline.html
 # https://lazka.github.io/pgi-docs/Gst-1.0/functions.html#Gst.parse_launch
