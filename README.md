@@ -16,5 +16,5 @@ python launch_pipeline/pipeline_with_factory.py
 ```
 
 ```bash
-python launch_pipeline/pipeline_with_parse_launch.py -p "videotestsrc num-buffers=100 pattert=1 ! autovideosink"
+python launch_pipeline/pipeline_with_parse_launch.py -p "videotestsrc num-buffers=100 pattern=1 ! autovideosink"
 ```
