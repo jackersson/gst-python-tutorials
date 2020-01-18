@@ -54,7 +54,7 @@ with GstContext():  # create GstContext (hides MainLoop)
             array = np.random.randint(low=0, high=255,
                                       size=(HEIGHT, WIDTH, CHANNELS), dtype=DTYPE)
             # emit <push-buffer> event with Gst.Buffer
-            appsrc.emit("push-buffer", utils.numpy_to_gst_buffer(array))
+            appsrc.emit("push-buffer", utils.ndarray_to_gst_buffer(array))
 
         # emit <end-of-stream> event
         appsrc.emit("end-of-stream")
