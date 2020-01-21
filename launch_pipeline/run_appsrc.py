@@ -94,6 +94,10 @@ with GstContext():  # create GstContext (hides MainLoop)
         # instructs appsrc that we will be dealing with timed buffer
         appsrc.set_property("format", Gst.Format.TIME)
 
+        # instructs appsrc to block pushing buffers until ones in queue are preprocessed
+        # allows to avoid huge queue internal queue size in appsrc
+        self._src.set_property("block", True)
+
         # set input format (caps)
         appsrc.set_caps(Gst.Caps.from_string(CAPS))
 
