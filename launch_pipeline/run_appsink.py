@@ -33,6 +33,8 @@ def extract_buffer(sample: Gst.Sample) -> np.ndarray:
 
     buffer = sample.get_buffer()  # Gst.Buffer
 
+    print(buffer.pts, buffer.dts, buffer.offset)
+
     caps_format = sample.get_caps().get_structure(0)  # Gst.Structure
 
     # GstVideo.VideoFormat
