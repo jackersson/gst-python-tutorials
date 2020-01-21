@@ -1,1 +1,1 @@
-gstreamer-python @ git+https://github.com/jackersson/gstreamer-python.git@v0.0.1#egg=gstreamer-python
+gstreamer-python @ git+https://github.com/jackersson/gstreamer-python.git#egg=gstreamer-python
