@@ -62,7 +62,9 @@ def on_buffer(sink: GstApp.AppSink, data: typ.Any) -> Gst.FlowReturn:
     if isinstance(sample, Gst.Sample):
         array = extract_buffer(sample)
         print(
-            f"Received {type(array)} with shape {array.shape} of type {array.dtype}")
+            "Received {type} with shape {shape} of type {dtype}".format(type=type(array),
+                                                                        shape=array.shape,
+                                                                        dtype=array.dtype))
         return Gst.FlowReturn.OK
 
     return Gst.FlowReturn.ERROR

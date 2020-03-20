@@ -46,12 +46,13 @@ def parse_caps(pipeline: str) -> dict:
         return None
 
 
-DEFAULT_CAPS = f"video/x-raw,format={VIDEO_FORMAT},width={WIDTH},height={HEIGHT},framerate={fraction_to_str(FPS)}"
+FPS_STR = fraction_to_str(FPS)
+DEFAULT_CAPS = "video/x-raw,format={VIDEO_FORMAT},width={WIDTH},height={HEIGHT},framerate={FPS_STR}".format(**locals())
 
 # Converts list of plugins to gst-launch string
 # ['plugin_1', 'plugin_2', 'plugin_3'] => plugin_1 ! plugin_2 ! plugin_3
 DEFAULT_PIPELINE = utils.to_gst_string([
-    f"appsrc emit-signals=True is-live=True caps={DEFAULT_CAPS}",
+    "appsrc emit-signals=True is-live=True caps={DEFAULT_CAPS}".format(**locals()),
     "queue",
     "videoconvert",
     "autovideosink"
@@ -81,7 +82,8 @@ GST_VIDEO_FORMAT = GstVideo.VideoFormat.from_string(
 CHANNELS = utils.get_num_channels(GST_VIDEO_FORMAT)
 DTYPE = utils.get_np_dtype(GST_VIDEO_FORMAT)
 
-CAPS = f"video/x-raw,format={VIDEO_FORMAT},width={WIDTH},height={HEIGHT},framerate={fraction_to_str(FPS)}"
+FPS_STR = fraction_to_str(FPS)
+CAPS = "video/x-raw,format={VIDEO_FORMAT},width={WIDTH},height={HEIGHT},framerate={FPS_STR}".format(**locals())
 
 with GstContext():  # create GstContext (hides MainLoop)
 
